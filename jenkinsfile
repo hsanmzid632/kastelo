@@ -14,12 +14,10 @@ pipeline {
                 }
             }
         }
-        stages {
-            stage('down containers') {
-                steps {
-                    script {
-                        bat 'docker-compose down'
-                    }
+        stage('docker down') {
+            steps {
+                script {
+                    bat 'docker-compose down'
                 }
             }
         }
