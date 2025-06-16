@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+        stage('Build Docker Images') {
+            steps {
+                script {
+                    sh 'docker-compose build'
+                }
+            }
+        }
+        stage('Run Containers') {
+            steps {
+                script {
+                    sh 'docker-compose up -d'
+                }
+            }
+        }
+    }
+    post {
+        success {
+            echo 'Tous les tests sont passés avec succès !'
+        }
+        failure {
+            echo 'Échec : Un ou plusieurs tests ont échoué.'
+        }
+    }
+}
