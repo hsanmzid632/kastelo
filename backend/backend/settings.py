@@ -90,6 +90,9 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+
+MEDIA_URL = '/data/images/'
+MEDIA_ROOT = r'c:\Users\hsanm\Desktop\data\images'
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 EXTRA_IMAGE_DIR = os.path.join(BASE_DIR, '..', 'pipeline', 'data', 'images')
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

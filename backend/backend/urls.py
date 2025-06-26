@@ -16,4 +16,4 @@ urlpatterns = [
     path('api/similar/', SearchView.as_view(), name='similar'),
     path('api/article_infos/', article_infos, name='article_infos'),
     
-]+ static('/images/', document_root=settings.EXTRA_IMAGE_DIR)
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
